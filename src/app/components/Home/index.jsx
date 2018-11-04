@@ -13,19 +13,24 @@ function Home(props) {
   }
 
   function handleSureNameChange(e) {
-    setSureName(e.target.value);
+    setSureName(e.target.value)
   }
 
   return (
-    <div>
-      <div>
-        <input value={name} onChange={handleNameChange} />
+    <div className='home-page-container'>
+      <div className='home-page-container__fields'>
+        <div>
+          <input value={name} onChange={handleNameChange} />
+        </div>
+        <div>
+          <input value={sureName} onChange={handleSureNameChange} />
+        </div>
       </div>
       <div>
-        <input value={sureName} onChange={handleSureNameChange} />
+        <h1>My name is {name} {sureName}</h1>
       </div>
-      <h1>My name is {name} {sureName}</h1>
     </div>
+
   )
 }
 
