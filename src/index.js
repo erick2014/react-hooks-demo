@@ -1,12 +1,11 @@
 // // import react dependencies
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Home from 'components/Home'
-
+import AppRouting from './routing'
 // import general styles
 require('./assets/stylesheets/styles.scss')
 
 ReactDOM.render(
-  <Home />,
+  <AppRouting />,
   document.getElementById('root')
 )
