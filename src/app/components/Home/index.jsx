@@ -3,40 +3,44 @@ import React, { useState, useEffect } from 'react'
 import useWindowWidth from './windowResizeHook'
 
 function Home(props) {
-  const [name, setName] = useState('Erick')
-  const [sureName, setSureName] = useState('Armando')
+  const name = useFormInput('Erick')
+  const surName = useFormInput('Armando')
   const width = useWindowWidth()
-
-  useEffect(() => {
-    document.title = name + ' ' + sureName
-  })
-
-  function handleNameChange(e) {
-    setName(e.target.value)
-  }
-
-  function handleSureNameChange(e) {
-    setSureName(e.target.value)
-  }
+  useDocumentTitle(name.value + ' - ' + surName.value)
 
   return (
     <div className='home-page-container'>
       <div className='home-page-container__fields'>
         <div>
-          <input value={name} onChange={handleNameChange} />
+          <input {...name} />
         </div>
         <div>
-          <input value={sureName} onChange={handleSureNameChange} />
+          <input {...surName} />
         </div>
       </div>
       <div>
         {width}
       </div>
       <div>
-        <h1>My name is {name} {sureName}</h1>
+        <h1>My name is {name.value} {surName.value}</h1>
       </div>
     </div>
   )
+}
+
+function useFormInput(initialValue) {
+  const [value, setValue] = useState(initialValue)
+  const handleChange = (e) => setValue(e.target.value)
+  return {
+    value,
+    onChange: handleChange
+  }
+}
+
+function useDocumentTitle(title) {
+  useEffect(() => {
+    document.title = title
+  })
 }
 
 export default Home
