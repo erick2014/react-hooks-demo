@@ -9,6 +9,6 @@ export default function useWindowWidth() {
     return () => {
       window.removeEventListener('resize', handleResize)
     }
-  })
+  }, [width]) // only call the effect when the data changes
   return width
 }

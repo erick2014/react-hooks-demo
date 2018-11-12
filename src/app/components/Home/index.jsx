@@ -40,7 +40,7 @@ function useFormInput(initialValue) {
 function useDocumentTitle(title) {
   useEffect(() => {
     document.title = title
-  })
+  }, [title]) // only re run the effect if title changes
 }
 
 export default Home
