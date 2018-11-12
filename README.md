@@ -1,7 +1,5 @@
-### REACT - REDUX BOILER PLATE
+### REACT - HOOKS
 
 ```
-	1. React 16
-	2. Redux
-	3. React Router 4
+  Some examples using react hooks
 ```
